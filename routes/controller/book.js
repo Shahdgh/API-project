@@ -21,17 +21,16 @@ const newBook = (req, res) => {
     res.status(400).send(error);
   }
 };
-const getbook = (req, res) => {
-  bookModel
-    .find({})
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-      log.error(err);
-    });
-};
+const getBook = (req, res) => {
+    bookModel
+      .find({})
+      .then((result) => {
+        res.status(200).json(result);
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
+  };
 
 const softDel = (req, res) => {
   const { _id } = req.params;
@@ -110,7 +109,7 @@ const updateBook = (req, res) => {
 };
 module.exports = {
   newBook,
-  getbook,
+  getBook,
   softDel,
   updateBook,
 };
