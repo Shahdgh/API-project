@@ -6,3 +6,4 @@ const author = new mongoose.Schema({
   gender: { type: String },
   books :[{type:String}]
 });
+module.exports = mongoose.model("Author",author)
