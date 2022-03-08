@@ -12,16 +12,14 @@ const signupJoi = Joi.object({
   firstName: Joi.string().min(1).max(50).required(),
   lastName: Joi.string().min(1).max(50).required(),
   email: Joi.string().email().required(),
-  avatar: Joi.string().uri().min(6).max(1000).required(),
+  avatar: Joi.string().uri().min(6).max(1000),
   password: Joi.string().min(6).max(100).required(),
 })
 
 const loginJoi = Joi.object({
-  firstName: Joi.string().min(1).max(50),
-  lastName: Joi.string().min(1).max(50),
+    
   email: Joi.string().email().required(),
-  avatar: Joi.string().uri().min(6).max(1000),
-  password: Joi.string().min(6).max(100),
+  password: Joi.string().min(6).max(100).required(),
 })
 
 
