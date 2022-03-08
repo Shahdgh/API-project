@@ -75,38 +75,38 @@ const softDel = (req, res) => {
   }
 };
 const updateBook = (req, res) => {
-  const { _id } = req.params;
-  const { desc } = req.body;
-  try {
-    bookModel.findOne({ _id: _id }).then((item) => {
-      if (item) {
-        bookModel
-          .findOneAndUpdate(
-            { _id: _id },
-            { $set: { desc: desc, time: Date() } },
-            { new: true }
-          )
-          .then((result) => {
-            res.status(200).json(result);
-          });
-
-        bookModel
-          .findOneAndUpdate(
-            { _id: _id },
-            { $set: { desc: desc, time: Date() } },
-            { new: true }
-          )
-          .then((result) => {
-            res.status(200).json(result);
-          });
-      } else {
-        res.status(404).send("Book not found");
-      }
-    });
-  } catch (error) {
-    res.status(400).json(error);
-  }
-};
+    const { _id } = req.params;
+    const { title} = req.body;
+    try {
+      bookModel.findOne({ _id: _id }).then((item) => {
+        if (item) {
+          bookModel
+            .findOneAndUpdate(
+              { _id: _id },
+              { $set: { title: title, time: Date() } },
+              { new: true }
+            )
+            .then((result) => {
+              res.status(200).json(result);
+            });
+  
+          bookModel
+            .findOneAndUpdate(
+              { _id: _id },
+              { $set: { title: title, time: Date() } },
+              { new: true }
+            )
+            .then((result) => {
+              res.status(200).json(result);
+            });
+        } else {
+          res.status(404).send("Book not found");
+        }
+      });
+    } catch (error) {
+      res.status(400).json(error);
+    }
+  };
 module.exports = {
   newBook,
   getBook,
