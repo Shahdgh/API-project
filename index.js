@@ -27,6 +27,9 @@ app.use(cors())
 app.use("/api/users", users)
 const authorRouter = require("./routes/router/author");
 app.use(authorRouter);
+const bookRouter = require("./routes/router/book");
+app.use(bookRouter);
+
 
 
 
