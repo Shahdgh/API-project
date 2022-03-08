@@ -21,3 +21,13 @@ const newBook = (req, res) => {
     res.status(400).send(error);
   }
 };
+const getAllbook = (req, res) => {
+    bookModel
+      .find({})
+      .then((result) => {
+        res.send(result);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  };
