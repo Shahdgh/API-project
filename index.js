@@ -3,6 +3,8 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 require("dotenv").config()
 const Joi = require("joi")
+const morgan = require("morgan")
+
 const JoiObjectId = require("joi-objectid")
 Joi.objectid = JoiObjectId(Joi)
 const users = require("./routes/users")
@@ -22,6 +24,7 @@ mongoose
   const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(morgan())
 
 
 app.use("/api/users", users)
